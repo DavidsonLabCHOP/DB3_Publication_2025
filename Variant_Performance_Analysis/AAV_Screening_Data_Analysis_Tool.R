@@ -12,12 +12,6 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(readr)
-library(scales)
-library(officer)
-library(rvg)
-library(purrr)
-library(sys)
-library(reshape2)
 library(pheatmap)
 
 ## This toggle will cause the script to delete all the variables it creates once it has finished
@@ -458,8 +452,8 @@ collapse_BCs <- function(dataset) {
     ## Next, the indices for each set of parent barcode / sequencing error barcodes are identified
     #     and assigned their own unique cluster value (cluster_ID). The highest cluster value in
     #     the dataset at this point = nrow(dataset). So, we'll start with the value:
-    #     nrow(data) + 1 to begin labeling our parent / seq error clusters.
-    cluster_ID <- nrow(data) + 1
+    #     nrow(dataset) + 1 to begin labeling our parent / seq error clusters.
+    cluster_ID <- nrow(dataset) + 1
     
     ## Running through each parent barcode in our BCs_to_consolidate data frame
     for (i in BCs_to_consolidate$Barcodes) {
@@ -887,7 +881,7 @@ General_Output_Filename <- paste0("Settings_And_Info-",Save_File_Tag,".txt")
 
 sink(file = General_Output_Filename)
 
-print("AAV_Screening_Data_Analysis_Tool.R - Setting and Information")
+print("AAV_Screening_Data_Analysis_Tool.R - Settings and Information")
 print("Run on:")
 Sys.time()
 print("---------------------------------------------------------------------------------------------")
