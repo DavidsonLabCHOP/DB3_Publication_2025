@@ -597,7 +597,7 @@ Create_Metric_Data_Frames <- function(input_vector, experimental_data) {
   experimental_data_enrichment$PctUMI_Exp <- experimental_data$ExpData / sum(experimental_data$ExpData)
   ## Calculating Enrichment values
   experimental_data_enrichment$Enrichment <- (experimental_data_enrichment$PctUMI_Exp - experimental_data_enrichment$PctUMI_Input)/experimental_data_enrichment$PctUMI_Input
-  experimental_data_enrichment$Enrichment <- experimental_data_enrichment$Enrichment + 1
+  experimental_data_enrichment$Enrichment <- experimental_data_enrichment$Enrichment
   
   experimental_data_enrichment <- dplyr::arrange(experimental_data_enrichment, desc(Enrichment))
   experimental_data_enrichment$Enrichment_Rank <- c(1:nrow(experimental_data_enrichment))
